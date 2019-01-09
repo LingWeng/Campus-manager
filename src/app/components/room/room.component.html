@@ -1,4 +1,4 @@
-<div class="room" [ngStyle]="roomStyle()" [id]="'room'+room.id"  >
+<div class="room" [id]="'room'+room.id" [ngStyle]="roomStyle()" >
 
   <span *ngIf="settings.showName" class="name" [id]="'name'+room.id">{{room.name}}</span>
   <div *ngIf="settings.showBeamer" [id]="'beamer'+room.id">

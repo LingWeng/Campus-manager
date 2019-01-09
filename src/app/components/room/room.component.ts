@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, AfterViewChecked} from '@angular/core';
 import {Room} from '../../model/room';
 import {Type} from '../../model/type';
 import {MatDialog, MatDialogConfig} from '@angular/material';
@@ -12,7 +12,7 @@ import {element} from 'protractor';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.css']
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent implements OnInit, AfterViewChecked{
   @Input() room: Room;
   settings = Settings;
   counter;
@@ -23,7 +23,6 @@ export class RoomComponent implements OnInit {
   ngOnInit() {
     this.runTimer();
   }
-
 
   private roomStyle() {
     let styles;
@@ -38,7 +37,6 @@ export class RoomComponent implements OnInit {
         'border': 'solid 2px black',
         'transform': 'rotate(' + this.room.angle + 'deg)'
       } ;
-      this.rotateElements();
     } else {
       styles = {
         'margin': '5px auto',
@@ -124,7 +122,7 @@ export class RoomComponent implements OnInit {
   }
 
   private rotateElements() {
-    if (this.room.angle !== 0) {
+    if (this.room.angle !== 0 && !Settings.planView) {
       const children = document.getElementById('room' + this.room.id).children;
       for (let i = 0; i < children.length; i++) {
         const tableChild = children[i];
@@ -134,8 +132,11 @@ export class RoomComponent implements OnInit {
         } else {
           el.style.transform = 'rotate(' + Math.abs(this.room.angle) + 'deg)';
         }
-
       }
     }
+  }
+
+  ngAfterViewChecked(): void {
+  this.rotateElements();
   }
 }
