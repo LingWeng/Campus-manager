@@ -1,0 +1,23 @@
+<div id="mycontainer">
+  <div id=logo>
+    <img alt="logo Icon" src="../assets/images/logo.png">
+  </div>
+  <div id="router">
+    <h2>Floor</h2>
+      <ul id="navi">
+        <li *ngFor="let floor of floors" >
+          <a routerLink="/floor/{{floor.id}}">
+            level {{floor.id}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div id="settings" (window:resize)="onResize($event)">
+    <app-settings></app-settings>
+  </div>
+    <input type="button" (click)="showSettings()" class="btn btn-success " value="Settings" id="rotate"/>
+
+</div>

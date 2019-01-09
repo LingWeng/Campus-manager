@@ -1,0 +1,6 @@
+<div class="floor" [ngStyle]="floorStyle()">
+  <div *ngFor='let room of rooms'>
+    <app-room [room] = "room" (click)="setSelected(room)"></app-room>
+  </div>
+
+</div>

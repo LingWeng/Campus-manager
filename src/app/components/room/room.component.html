@@ -1,0 +1,27 @@
+<div class="room" [ngStyle]="roomStyle()" [id]="'room'+room.id"  >
+
+  <span *ngIf="settings.showName" class="name" [id]="'name'+room.id">{{room.name}}</span>
+  <div *ngIf="settings.showBeamer" [id]="'beamer'+room.id">
+  <img class="beamer"*ngIf="room.beamer" src="assets/images/beamer.png"  >
+  </div>
+  <img *ngIf="settings.showType" class="type" [src]="getTypeIcon()" [id]="'type'+room.id">
+
+  <div *ngIf="settings.showCapacity" class="capacity" [id]="'cap'+room.id">
+    <span>{{room.capacity}}</span>
+    <img src="assets/images/people.png" alt="capacity icon">
+  </div>
+  <div class="selected" *ngIf="room.selected" [id]="'sel'+room.id">
+    <a routerLink="/room/{{room.id}}">
+      <button>info</button>
+    </a>
+    <div class="reservation" *ngIf="!checkNotBookable()" [id]="'res'+room.id">
+      <button (click)="openDialog(room)" *ngIf="!room.occupied">Book</button>
+    </div>
+    <div class="slidercontainer" *ngIf="checkNotBookable()" [id]="'slider'+room.id">
+      <input type="range" min="0" [max]="room.capacity" [value]="room.activity" class="slider" id="myRange" (change)="updateActivity($event.target.value)">
+      <p>People: {{room.activity}}</p>
+    </div>
+
+  </div>
+
+</div>

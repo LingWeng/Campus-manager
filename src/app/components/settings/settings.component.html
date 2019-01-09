@@ -1,0 +1,58 @@
+<div id='settings'>
+  <h1>Settings</h1>
+  <div class = "form form-group row">
+    <label for ="beamer">Show beamers</label>
+    <input id="beamer" name="beamer" type='checkbox' [(ngModel)]="mySettings.showBeamer">
+  </div>
+  <div class = " form form-group row">
+    <label for ="cap">Show capacities</label>
+    <input id="cap" name="cap"  type='checkbox' [(ngModel)]="mySettings.showCapacity">
+  </div>
+  <div class = "form form-group row">
+    <label for ="name">Show name</label>
+    <input id="name" name="name" type='checkbox' [(ngModel)]="mySettings.showName">
+  </div>
+  <div class = "form form-group row">
+    <label for ="type">Show room types</label>
+    <input id="type" name="type"  type='checkbox' [(ngModel)]="mySettings.showType">
+  </div>
+
+  <div class="colors">
+    <div class = settingContainer>
+      <label for = "occup"> Occupied color:</label>
+      <button id="occup" name="occup" [(colorPicker)]="mySettings.occupiedColor" [ngStyle] ="{'background':mySettings.occupiedColor}"></button>
+    </div>
+    <div class = settingContainer>
+      <label for = "avail"> Available color:</label>
+      <button id="avail" name="avail" [(colorPicker)]="mySettings.freeColor" [ngStyle] ="{'background':mySettings.freeColor}"></button>
+    </div>
+    <div class = settingContainer>
+      <label for ="high"> High Activity color:</label>
+      <button id="high" name="high" [(colorPicker)]="mySettings.highColor" [ngStyle] ="{'background':mySettings.highColor}"></button>
+    </div>
+    <div class = settingContainer>
+      <label for="medhigh"> Medium-high Activity color:</label>
+      <button id="medhigh" name="medhigh" [(colorPicker)]="mySettings.mediumHighColor" [ngStyle] ="{'background':mySettings.mediumHighColor}"></button>
+    </div>
+    <div class = settingContainer>
+      <label for="med"> Medium activity color:</label>
+      <button id="med" name="med" [(colorPicker)]="mySettings.mediumColor" [ngStyle] ="{'background':mySettings.mediumColor}"></button>
+    </div>
+    <div class = settingContainer>
+      <label for="low"> Low Activity color</label>
+      <button id="low" name="low" [(colorPicker)]="mySettings.lowColor" [ngStyle] ="{'background':mySettings.lowColor}"></button>
+    </div>
+
+  </div>
+  <div id="view">
+    <label class="viewName"> List view </label>
+    <div class="tog">
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="mySettings.planView">
+        <span class="toggle round"></span>
+      </label>
+    </div>
+    <label class="viewName">Plan view</label>
+  </div>
+  <button  (click)="resetSettings()">Reset</button>
+</div>

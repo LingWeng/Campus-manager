@@ -1,0 +1,21 @@
+<div class="acontainer">
+  <h1>{{room.name}}</h1>
+  <div class="content">
+    <form>
+      <h2>Reservation for room {{room.name}} on {{date | date:'medium'}}</h2>
+
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <select id="duration">
+          <option value=1>1 hour</option>
+          <option value=2>2 hours</option>
+          <option value=3>3 hours</option>
+        </select>
+      </div>
+
+      <button [mat-dialog-close]="true" (click)="makeBooking()" class="btn btn-success">Book</button>
+    </form>
+
+
+  </div>
+</div>

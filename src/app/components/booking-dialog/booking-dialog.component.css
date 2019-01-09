@@ -1,0 +1,16 @@
+.acontainer{
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-left: 10px;
+  margin:auto;
+  background: lightslategray;
+  padding-bottom: 25px;
+}
+
+label{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+

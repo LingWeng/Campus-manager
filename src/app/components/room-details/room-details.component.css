@@ -1,0 +1,30 @@
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.formcontainer{
+  padding: 10px;
+  margin: 0 10px;
+  background-color: lightgrey;
+}
+h1{
+  color: #27882d;
+}
+
+h2{
+  color: #27882d;
+}
+
+label{
+  color: green;
+}
+.reservation{
+  padding-left: 5px;
+}
+.detail{
+  font-size: 0.8em;
+}
